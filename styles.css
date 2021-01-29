@@ -1,0 +1,12 @@
+
+.square-grid {
+    display: grid;
+    grid-template-columns: repeat(16, 6.25fr);
+    background-color: blue;
+}
+
+.square {
+    padding: 20px;
+    background-color: pink;
+    border-style: solid;
+}
