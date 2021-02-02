@@ -1,8 +1,8 @@
 
 
 /* Create the sketch grid */
-createGrid(50);
-styleGrid();
+createGrid(100);
+styleGrid(100);
 addGridHoverListener();
 setupClearButton();
 
@@ -17,11 +17,13 @@ function createGrid(numSideSquares) {
     console.log(grid.childNodes);
 }
 
-function styleGrid() {
+function styleGrid(numSideSquares) {
     let grid = document.getElementById("sketch-grid");
     let squares = grid.childNodes;
 
     grid.classList.add("square-grid");
+    let squareWidth = Math.floor(1/numSideSquares * 100) / 1.25;
+    grid.style["grid-template-columns"] = `repeat(${numSideSquares}, ${squareWidth}vh)`;
 
     squares.forEach((square) => {
         square.classList.add("square");
@@ -54,10 +56,18 @@ function setNewGrid() {
     let grid = document.getElementById("sketch-grid");
     grid.innerHTML = "";
 
-    let dim = prompt("How many squares long?");
-    dim = Number(dim);
-    createGrid(50);
-    styleGrid();
+    let dim = getNewGridDimension();
+    createGrid(dim);
+    styleGrid(dim);
     addGridHoverListener();
+}
+
+function getNewGridDimension() {
+    let dim;
+    do {
+        dim = prompt("How many squares long? (Enter a number between 1 and 100 inclusive)");
+    } while (Number(dim) <= 0 || Number(dim) > 100);
+
+    return Number(dim);
 }
 

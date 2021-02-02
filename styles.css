@@ -1,16 +1,20 @@
+body {
+    display: grid;
+    justify-content: center;
+}
 
 .square-grid {
     display: grid;
-    grid-template-columns: repeat(50, 2%);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     background-color: pink;
-    padding: 30px;
-    margin: 100px;
-    width: 70vw;
+    padding: 50px;
+    margin: 20px;
     max-width: 70vw;
+    max-height: 80vh;
     height: auto;
-
+    overflow: auto;
+    justify-content: center;
 }
 
 .square {
@@ -20,8 +24,4 @@
     width: 100%;
     max-width: 100%;
     padding-top: 100%;
-    max-height: 50px;
-    border-width: 0.5px;
-    border-style: solid;
-    border-color: rgb(179, 177, 177);
 }
