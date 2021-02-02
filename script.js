@@ -1,8 +1,8 @@
 
 
 /* Create the sketch grid */
-createGrid(100);
-styleGrid(100);
+createGrid(16);
+styleGrid(16);
 addGridHoverListener();
 setupClearButton();
 
@@ -44,6 +44,7 @@ function fillSquare() {
     let g = Math.floor(Math.random() * 256);
     let b = Math.floor(Math.random() * 256);
 
+    this.style.transition = "background-color 0.2s";
     this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
